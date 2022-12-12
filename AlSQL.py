@@ -1,6 +1,6 @@
 import sys
 # для настройки баз данных
-from sqlalchemy import Column, ForeignKey, Integer, String, Boolean
+from sqlalchemy import Column, ForeignKey, Integer, String, Boolean, DateTime
 
 # для определения таблицы и модели
 from sqlalchemy.ext.declarative import declarative_base
@@ -24,6 +24,8 @@ class Players(Base):
     wish = Column('wish', String(1000))
     is_choose = Column('is_choose', Boolean)
     choose_id = Column('choose_id', Integer)
+    last_check_wish = Column('last_check_wish', DateTime)
+    last_change_wish = Column('last_change_wish', DateTime)
 
 # создает экземпляр create_engine в конце файла
 engine = create_engine('sqlite:///players.db')

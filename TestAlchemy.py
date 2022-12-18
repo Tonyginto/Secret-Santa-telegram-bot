@@ -56,13 +56,6 @@ def randoming_players():
         random.shuffle(l)
         f = [False if i == l[i] else True for i in range(num)]
         f = True if all(f) else False
-        # i: int = 0
-        # while i < num:
-        #     if i == l[i]:
-        #         random.shuffle(l)
-        #         break
-        #     i += 1
-        # if i == num: f = True
     for i in range(num):
         all_play[i].choose_id, all_play[i].is_choose = all_play[l[i]].id_telegram , True
         session.add(all_play[i])

@@ -67,7 +67,7 @@ def allFalse():
         session.add(i)
         session.commit()
 
-allFalse()
-randoming_players()
+#allFalse()
+#randoming_players()
 df = pd.read_sql_table('players', engine)
 print(df)

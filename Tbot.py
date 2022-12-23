@@ -32,21 +32,20 @@ def get_text_messages(message):
            'Указать/Изменить желание':"Введи своё желание",
            '/insname':"Введи свои имя и фамилию",
            '/inswish':"Введи своё желание"}
-    # key_bns = types.KeyboardButton(text='Указать/Изменить имя и фамилию')
-    # key_baw = types.KeyboardButton(text='Указать/Изменить желание')
-    # key_show = types.KeyboardButton(text='Моё имя и желание')
-    # key_showrec = types.KeyboardButton(text='Имя и желание одаряемого')
-    # keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True).row(key_bns,key_baw).row(key_show, key_showrec)
+    key_bns = types.KeyboardButton(text='Указать/Изменить имя и фамилию')
+    key_baw = types.KeyboardButton(text='Указать/Изменить желание')
+    key_show = types.KeyboardButton(text='Моё имя и желание')
+    key_showrec = types.KeyboardButton(text='Имя и желание одаряемого')
+    keyboard = types.ReplyKeyboardMarkup(resize_keyboard=True).row(key_bns,key_baw).row(key_show, key_showrec)
     if message.text in dic:
-        pol = 1
-        #bot.send_message(message.from_user.id, dic[message.text], reply_markup=keyboard)
+        bot.send_message(message.from_user.id, dic[message.text], reply_markup=keyboard)
 
     if message.text == 'Указать/Изменить имя и фамилию' or message.text.lower() == '/insname':
         #bot.send_message(message.from_user.id, "Введи свои имя и фамилию", reply_markup=keyboard)
-        bot.send_message(message.from_user.id, "Введи свои имя и фамилию")
+        # bot.send_message(message.from_user.id, "Введи свои имя и фамилию")
         bot.register_next_step_handler(message, get_NameAndSurname)
     elif message.text == 'Указать/Изменить желание' or message.text.lower() == '/inswish':
-        bot.send_message(message.from_user.id, "Введи своё желание")
+        # bot.send_message(message.from_user.id, "Введи своё желание")
         bot.register_next_step_handler(message, get_wish)
     elif message.text == 'Моё имя и желание' or message.text.lower() == '/showmywish':
         show_wish_name(message.from_user.id)
